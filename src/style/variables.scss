@@ -16,38 +16,33 @@ $color-red: #D81E06;
 $color-background: #FAFAFA;
 
 
-
 /**
  * 覆盖通用样式库(sx-common-css)的变量
  */
 
 // 边距大小
-$extraSmall: 8upx;
-$small: 16upx;
-$base: 28upx;
-$medium: 40upx;
-$large: 60upx;
-$extraLarge: 100upx;
+$spacing-extra-small: 8upx;
+$spacing-small: 16upx;
+$spacing-base: 28upx;
+$spacing-medium: 40upx;
+$spacing-large: 60upx;
+$spacing-extra-large: 100upx;
 
 // 圆角大小
-$radius: 10upx;
-$extraRadius: 32upx;
+$radius-small: 4upx !default;
+$radius-base: 8upx !default;
+$radius-large: 24upx !default;
+$radius-circle: 50% !default;
 
 // 阴影
-$shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
-$extraShadow: 0 0 6px 2px rgba(0, 0, 0, 0.15);
-
-// 颜色
-$colorPrimary: $color-blue;
-$colorSuccess: $color-green;
-$colorDanger: $color-red;
-$colorWarning: $color-yellow;
-$colorInfo: #909399;
+$shadow-small: 0 0 4upx 2upx rgba(0, 0, 0, 0.05) !default;
+$shadow-base: 0 0 6upx 2upx rgba(0, 0, 0, 0.05) !default;
+$shadow-large: 0 0 12upx 2upx rgba(0, 0, 0, 0.1) !default;
 
 // 字体大小
-$fontExtraSmall: 24upx;
-$fontSmall: 28upx;
-$fontBase: 32upx;
-$fontMedium: 36upx;
-$fontLarge: 40upx;
-$fontExtraLarge: 48upx;
+$font-extra-small: 24upx;
+$font-small: 28upx;
+$font-base: 32upx;
+$font-medium: 36upx;
+$font-large: 40upx;
+$font-extra-large: 48upx;

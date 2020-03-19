@@ -16,6 +16,7 @@
 
   /*每个页面公共css */
   page {
+    height: 100%;
     min-height: 100%;
   }
 
@@ -50,8 +51,8 @@
 
 </style>
 
-
 <style lang="scss">
+
   /*scss变量 + 通用样式库 */
   @import "style/variables.scss";
   @import "~sx-common-css/index.wx.scss";
@@ -59,7 +60,8 @@
   /*通用样式*/
   @import "style/index";
 
-  uni-page-body, page {
-    font-size: $fontBase;
+  page {
+    font-size: $font-base;
     background: $color-background;
   }
+</style>

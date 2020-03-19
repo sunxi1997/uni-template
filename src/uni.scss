@@ -17,10 +17,10 @@
 /* 颜色变量 */
 
 /* 行为相关颜色 */
-$uni-color-primary: $colorPrimary;
-$uni-color-success: $colorSuccess;
-$uni-color-warning: $colorWarning;
-$uni-color-error: $colorDanger;
+$uni-color-primary: $color-blue;
+$uni-color-success: $color-green;
+$uni-color-warning: $color-yellow;
+$uni-color-error: $color-red;
 
 /* 文字基本颜色 */
 $uni-text-color: #333; //基本色
@@ -41,9 +41,9 @@ $uni-border-color: #c8c7cc;
 /* 尺寸变量 */
 
 /* 文字尺寸 */
-$uni-font-size-sm: $fontSmall;
-$uni-font-size-base: $fontBase;
-$uni-font-size-lg: $fontMedium;
+$uni-font-size-sm: $font-extra-small;
+$uni-font-size-base: $font-base;
+$uni-font-size-lg: $font-medium;
 
 /* 图片尺寸 */
 $uni-img-size-sm: 40upx;

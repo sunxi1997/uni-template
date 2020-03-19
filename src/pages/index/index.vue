@@ -1,6 +1,8 @@
 <template>
-  <div>
-    hello world
+  <div class="h-100 flex flex-center">
+    <span class="color-primary">
+      hello world
+    </span>
   </div>
 </template>
 
@@ -14,5 +16,7 @@
 </script>
 
 <style scoped lang="scss">
+  div {
 
+  }
 </style>

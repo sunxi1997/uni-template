@@ -1,0 +1,7 @@
+@import "variables";
+@import "~sx-common-css/mixin/index";
+
+
+$colors: $color-blue $color-yellow $color-white;
+$names: 'primary' 'sub' 'white';
+@include colors($colors, $names)
