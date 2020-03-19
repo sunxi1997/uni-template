@@ -1,0 +1,53 @@
+
+/**
+ * 通用变量
+ */
+
+// 颜色
+$color-white: #FFFFFF;
+$color-yellow: #FFB700;
+$color-blue: #007aff;
+$color-dark: #000000;
+$color-light-gray: #E5E5E5;
+$color-green: #4CD964;
+$color-red: #D81E06;
+
+// 背景色设置
+$color-background: #FAFAFA;
+
+
+
+/**
+ * 覆盖通用样式库(sx-common-css)的变量
+ */
+
+// 边距大小
+$extraSmall: 8upx;
+$small: 16upx;
+$base: 28upx;
+$medium: 40upx;
+$large: 60upx;
+$extraLarge: 100upx;
+
+// 圆角大小
+$radius: 10upx;
+$extraRadius: 32upx;
+
+// 阴影
+$shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+$extraShadow: 0 0 6px 2px rgba(0, 0, 0, 0.15);
+
+// 颜色
+$colorPrimary: $color-blue;
+$colorSuccess: $color-green;
+$colorDanger: $color-red;
+$colorWarning: $color-yellow;
+$colorInfo: #909399;
+
+// 字体大小
+$fontExtraSmall: 24upx;
+$fontSmall: 28upx;
+$fontBase: 32upx;
+$fontMedium: 36upx;
+$fontLarge: 40upx;
+$fontExtraLarge: 48upx;
