@@ -21,6 +21,13 @@
   /*uni-app样式问题修复*/
   @import "style/uni-reset";
 
+
+  /*color-ui*/
+  @import "colorui/main.css";
+  @import "colorui/animation.css";
+  @import "colorui/icon.css";
+  @import "style/colorui-reset";
+
   /*样式表*/
   @import "style/index";
 </style>
