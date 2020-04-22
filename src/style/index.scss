@@ -12,3 +12,10 @@ page {
   font-size: $font-base;
   background: $color-background;
 }
+
+/* #ifdef H5 */
+page{
+  // h5 中100vh是整个窗口高度,而不是小程序中的仅页面部分(不包含navbar,tabbar)
+  min-height: 100%;
+}
+/* #endif */
