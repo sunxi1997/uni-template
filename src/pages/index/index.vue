@@ -1,9 +1,9 @@
 <template>
-  <div class="h-100 flex flex-center">
-    <span class="color-primary">
+  <view class="h-100 flex flex-center">
+    <text class="color-primary">
       hello world
-    </span>
-  </div>
+    </text>
+  </view>
 </template>
 
 <script>
@@ -16,7 +16,4 @@
 </script>
 
 <style scoped lang="scss">
-  div {
-
-  }
 </style>

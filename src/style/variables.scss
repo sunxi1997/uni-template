@@ -46,3 +46,8 @@ $font-base: 32upx;
 $font-medium: 36upx;
 $font-large: 40upx;
 $font-extra-large: 48upx;
+
+:export {
+  colorPrimary: $color-green;
+  colorYellow: $color-yellow;
+}

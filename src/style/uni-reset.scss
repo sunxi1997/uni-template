@@ -1,0 +1,14 @@
+/**
+ * uni-app默认样式问题修复
+ */
+
+page {
+
+  /*  #ifndef  H5  */
+
+  // 默认的 0 在参与 calc 计算时,会出bug导致样式失效
+  --window-top: 0px;
+  --window-bottom: 0px;
+
+  /*  #endif  */
+}

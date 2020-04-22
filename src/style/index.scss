@@ -2,6 +2,13 @@
 @import "~sx-common-css/mixin/index";
 
 
-$colors: $color-blue $color-yellow $color-white;
-$names: 'primary' 'sub' 'white';
-@include colors($colors, $names)
+/*公共css变量*/
+@import "css-variables";
+
+/*每个页面公共css */
+page {
+  height: 100%;
+  min-height: 100vh;
+  font-size: $font-base;
+  background: $color-background;
+}
