@@ -1,0 +1,656 @@
+/**
+ * color-ui 扩展样式 & 修复
+ *
+ * by 孙玺 2020.4.23
+ *
+ **/
+
+// 标题
+.cu-bar .action.border-title text[class*="bg-"]:last-child {
+  left: 0.5em;
+  border-radius: 2px;
+  min-width: 0;
+}
+
+// 按钮
+.cu-btn {
+  &.clear {
+    background-color: transparent;
+  }
+
+  &.lg {
+    min-width: 8em;
+  }
+
+  &.mini {
+    width: 32upx;
+    height: 32upx;
+    font-size: 20upx;
+  }
+}
+
+/* #ifdef  H5 */
+// 复选框,单选框有时是蓝色的
+checkbox:not([disabled]) .uni-checkbox-input:hover,
+radio:not([disabled]) .uni-radio-input:hover {
+  border-color: #d1d1d1;
+}
+/* #endif */
+
+// 单选按钮点状样式调整
+radio.radio[checked]::after,radio.radio .uni-radio-input-checked::after{
+  width: 20upx;
+  height: 20upx;
+  border-width: 10upx!important;
+}
+
+// 背景层级过高
+radio.radio[checked]::after, radio.radio .uni-radio-input-checked::after{
+  z-index: 1;
+}
+
+// 图片上传
+.grid.grid-square {
+  > view.bg-img video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  // 图片上传关闭按钮
+  .cu-tag {
+    &.bg-red {
+      background: var(--red);
+      z-index: 2;
+    }
+  }
+}
+
+// 边框
+.solids.s-dashed:after {
+  border-style: dashed;
+}
+
+// 表单控件
+.border-form{
+  .cu-form-group{
+    border-top: 1upx solid #eee;
+  }
+}
+.cu-form-group {
+  .title {
+    &.required {
+      position: relative;
+
+      &:before {
+        content: '*';
+        display: block;
+        position: absolute;
+        color: var(--red);
+        top: 0;
+        right: 100%;
+        margin-right: 2px;
+      }
+    }
+  }
+
+  // picker样式拓展
+  .cu-picker {
+    flex: 1;
+    padding-right: 40upx;
+    overflow: hidden;
+    position: relative;
+
+    .picker {
+      line-height: 100upx;
+      font-size: 28upx;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+      text-align: right;
+    }
+
+    &:after {
+      font-family: "cuIcon";
+      display: block;
+      content: "\e6a3";
+      position: absolute;
+      font-size: 34upx;
+      color: var(--grey);
+      line-height: 100upx;
+      width: 60upx;
+      text-align: center;
+      top: 0;
+      bottom: 0;
+      right: -20upx;
+      margin: auto;
+    }
+  }
+
+  // 可以换行的表单控件
+  &.cu--form-group-wrap {
+    flex-wrap: wrap;
+
+    // 换行后标题保持原高度行高
+    .title {
+      height: 100upx;
+      line-height: 100upx;
+    }
+
+    // 占满主轴,换行
+    .action {
+      flex-basis: 100%;
+      flex-shrink: 0;
+      width: 100%;
+    }
+  }
+
+}
+
+// 列表
+.cu-list > .cu-item .move {
+  // 左滑列表
+  top: 0;
+}
+
+.bg-white{
+  color: inherit;
+}
+
+/**
+ * 来自 colorUI 2.1.6 的修改
+ */
+
+
+.switch-sex .wx-switch-input,
+.switch-sex .uni-switch-input {
+  background: var(--red) !important;
+  border-color: var(--red) !important;
+}
+
+.switch-sex[checked] .wx-switch-input,
+.switch-sex.checked .uni-switch-input {
+  background: var(--blue) !important;
+  border-color: var(--blue) !important;
+}
+
+switch.red[checked] .wx-switch-input,
+checkbox.red[checked] .wx-checkbox-input,
+radio.red[checked] .wx-radio-input,
+switch.red.checked .uni-switch-input,
+checkbox.red.checked .uni-checkbox-input,
+radio.red.checked .uni-radio-input {
+  border-color: var(--red) !important;
+}
+
+switch.orange[checked] .wx-switch-input,
+switch.orange.checked .uni-switch-input,
+checkbox.orange[checked] .wx-checkbox-input,
+checkbox.orange.checked .uni-checkbox-input,
+radio.orange[checked] .wx-radio-input,
+radio.orange.checked .uni-radio-input {
+  border-color: var(--orange) !important;
+}
+
+switch.yellow[checked] .wx-switch-input,
+switch.yellow.checked .uni-switch-input,
+checkbox.yellow[checked] .wx-checkbox-input,
+checkbox.yellow.checked .uni-checkbox-input,
+radio.yellow[checked] .wx-radio-input,
+radio.yellow.checked .uni-radio-input {
+  border-color: var(--yellow) !important;
+}
+
+switch.olive[checked] .wx-switch-input,
+switch.olive.checked .uni-switch-input,
+checkbox.olive[checked] .wx-checkbox-input,
+checkbox.olive.checked .uni-checkbox-input,
+radio.olive[checked] .wx-radio-input,
+radio.olive.checked .uni-radio-input {
+  border-color: var(--olive) !important;
+}
+
+switch.green[checked] .wx-switch-input,
+checkbox.green[checked] .wx-checkbox-input,
+checkbox[checked] .wx-checkbox-input,
+radio.green[checked] .wx-radio-input,
+switch.green.checked .uni-switch-input,
+checkbox.green.checked .uni-checkbox-input,
+checkbox.checked .uni-checkbox-input,
+radio.green.checked .uni-radio-input,
+radio.checked .uni-radio-input {
+  border-color: var(--green) !important;
+}
+
+switch.cyan[checked] .wx-switch-input,
+checkbox.cyan[checked] .wx-checkbox-input,
+radio.cyan[checked] .wx-radio-input,
+switch.cyan.checked .uni-switch-input,
+checkbox.cyan.checked .uni-checkbox-input,
+radio.cyan.checked .uni-radio-input {
+  border-color: var(--cyan) !important;
+}
+
+switch.blue[checked] .wx-switch-input,
+checkbox.blue[checked] .wx-checkbox-input,
+radio.blue[checked] .wx-radio-input,
+switch.blue.checked .uni-switch-input,
+checkbox.blue.checked .uni-checkbox-input,
+radio.blue.checked .uni-radio-input {
+  border-color: var(--blue) !important;
+}
+
+switch.purple[checked] .wx-switch-input,
+checkbox.purple[checked] .wx-checkbox-input,
+radio.purple[checked] .wx-radio-input,
+switch.purple.checked .uni-switch-input,
+checkbox.purple.checked .uni-checkbox-input,
+radio.purple.checked .uni-radio-input {
+  border-color: var(--purple) !important;
+}
+
+switch.mauve[checked] .wx-switch-input,
+checkbox.mauve[checked] .wx-checkbox-input,
+radio.mauve[checked] .wx-radio-input,
+switch.mauve.checked .uni-switch-input,
+checkbox.mauve.checked .uni-checkbox-input,
+radio.mauve.checked .uni-radio-input {
+  border-color: var(--mauve) !important;
+}
+
+switch.pink[checked] .wx-switch-input,
+checkbox.pink[checked] .wx-checkbox-input,
+radio.pink[checked] .wx-radio-input,
+switch.pink.checked .uni-switch-input,
+checkbox.pink.checked .uni-checkbox-input,
+radio.pink.checked .uni-radio-input {
+  border-color: var(--pink) !important;
+}
+
+switch.brown[checked] .wx-switch-input,
+checkbox.brown[checked] .wx-checkbox-input,
+radio.brown[checked] .wx-radio-input,
+switch.brown.checked .uni-switch-input,
+checkbox.brown.checked .uni-checkbox-input,
+radio.brown.checked .uni-radio-input {
+  border-color: var(--brown) !important;
+}
+
+switch.grey[checked] .wx-switch-input,
+checkbox.grey[checked] .wx-checkbox-input,
+radio.grey[checked] .wx-radio-input,
+switch.grey.checked .uni-switch-input,
+checkbox.grey.checked .uni-checkbox-input,
+radio.grey.checked .uni-radio-input {
+  border-color: var(--grey) !important;
+}
+
+switch.gray[checked] .wx-switch-input,
+checkbox.gray[checked] .wx-checkbox-input,
+radio.gray[checked] .wx-radio-input,
+switch.gray.checked .uni-switch-input,
+checkbox.gray.checked .uni-checkbox-input,
+radio.gray.checked .uni-radio-input {
+  border-color: var(--grey) !important;
+}
+
+switch.black[checked] .wx-switch-input,
+checkbox.black[checked] .wx-checkbox-input,
+radio.black[checked] .wx-radio-input,
+switch.black.checked .uni-switch-input,
+checkbox.black.checked .uni-checkbox-input,
+radio.black.checked .uni-radio-input {
+  border-color: var(--black) !important;
+}
+
+switch.white[checked] .wx-switch-input,
+checkbox.white[checked] .wx-checkbox-input,
+radio.white[checked] .wx-radio-input,
+switch.white.checked .uni-switch-input,
+checkbox.white.checked .uni-checkbox-input,
+radio.white.checked .uni-radio-input {
+  border-color: var(--white) !important;
+}
+
+switch.red[checked] .wx-switch-input.wx-switch-input-checked,
+checkbox.red[checked] .wx-checkbox-input,
+radio.red[checked] .wx-radio-input,
+switch.red.checked .uni-switch-input.uni-switch-input-checked,
+checkbox.red.checked .uni-checkbox-input,
+radio.red.checked .uni-radio-input {
+  background-color: var(--red) !important;
+  color: var(--white) !important;
+}
+
+switch.orange[checked] .wx-switch-input,
+checkbox.orange[checked] .wx-checkbox-input,
+radio.orange[checked] .wx-radio-input,
+switch.orange.checked .uni-switch-input,
+checkbox.orange.checked .uni-checkbox-input,
+radio.orange.checked .uni-radio-input {
+  background-color: var(--orange) !important;
+  color: var(--white) !important;
+}
+
+switch.yellow[checked] .wx-switch-input,
+checkbox.yellow[checked] .wx-checkbox-input,
+radio.yellow[checked] .wx-radio-input,
+switch.yellow.checked .uni-switch-input,
+checkbox.yellow.checked .uni-checkbox-input,
+radio.yellow.checked .uni-radio-input {
+  background-color: var(--yellow) !important;
+  color: var(--black) !important;
+}
+
+switch.olive[checked] .wx-switch-input,
+checkbox.olive[checked] .wx-checkbox-input,
+radio.olive[checked] .wx-radio-input,
+switch.olive.checked .uni-switch-input,
+checkbox.olive.checked .uni-checkbox-input,
+radio.olive.checked .uni-radio-input {
+  background-color: var(--olive) !important;
+  color: var(--white) !important;
+}
+
+switch.green[checked] .wx-switch-input,
+switch[checked] .wx-switch-input,
+checkbox.green[checked] .wx-checkbox-input,
+checkbox[checked] .wx-checkbox-input,
+radio.green[checked] .wx-radio-input,
+radio[checked] .wx-radio-input,
+switch.green.checked .uni-switch-input,
+switch.checked .uni-switch-input,
+checkbox.green.checked .uni-checkbox-input,
+checkbox.checked .uni-checkbox-input,
+radio.green.checked .uni-radio-input,
+radio.checked .uni-radio-input {
+  background-color: var(--green) !important;
+  color: var(--white) !important;
+}
+
+switch.cyan[checked] .wx-switch-input,
+checkbox.cyan[checked] .wx-checkbox-input,
+radio.cyan[checked] .wx-radio-input,
+switch.cyan.checked .uni-switch-input,
+checkbox.cyan.checked .uni-checkbox-input,
+radio.cyan.checked .uni-radio-input {
+  background-color: var(--cyan) !important;
+  color: var(--white) !important;
+}
+
+switch.blue[checked] .wx-switch-input,
+checkbox.blue[checked] .wx-checkbox-input,
+radio.blue[checked] .wx-radio-input,
+switch.blue.checked .uni-switch-input,
+checkbox.blue.checked .uni-checkbox-input,
+radio.blue.checked .uni-radio-input {
+  background-color: var(--blue) !important;
+  color: var(--white) !important;
+}
+
+switch.purple[checked] .wx-switch-input,
+checkbox.purple[checked] .wx-checkbox-input,
+radio.purple[checked] .wx-radio-input,
+switch.purple.checked .uni-switch-input,
+checkbox.purple.checked .uni-checkbox-input,
+radio.purple.checked .uni-radio-input {
+  background-color: var(--purple) !important;
+  color: var(--white) !important;
+}
+
+switch.mauve[checked] .wx-switch-input,
+checkbox.mauve[checked] .wx-checkbox-input,
+radio.mauve[checked] .wx-radio-input,
+switch.mauve.checked .uni-switch-input,
+checkbox.mauve.checked .uni-checkbox-input,
+radio.mauve.checked .uni-radio-input {
+  background-color: var(--mauve) !important;
+  color: var(--white) !important;
+}
+
+switch.pink[checked] .wx-switch-input,
+checkbox.pink[checked] .wx-checkbox-input,
+radio.pink[checked] .wx-radio-input,
+switch.pink.checked .uni-switch-input,
+checkbox.pink.checked .uni-checkbox-input,
+radio.pink.checked .uni-radio-input {
+  background-color: var(--pink) !important;
+  color: var(--white) !important;
+}
+
+switch.brown[checked] .wx-switch-input,
+checkbox.brown[checked] .wx-checkbox-input,
+radio.brown[checked] .wx-radio-input,
+switch.brown.checked .uni-switch-input,
+checkbox.brown.checked .uni-checkbox-input,
+radio.brown.checked .uni-radio-input {
+  background-color: var(--brown) !important;
+  color: var(--white) !important;
+}
+
+switch.grey[checked] .wx-switch-input,
+checkbox.grey[checked] .wx-checkbox-input,
+radio.grey[checked] .wx-radio-input,
+switch.grey.checked .uni-switch-input,
+checkbox.grey.checked .uni-checkbox-input,
+radio.grey.checked .uni-radio-input {
+  background-color: var(--grey) !important;
+  color: var(--white) !important;
+}
+
+switch.gray[checked] .wx-switch-input,
+checkbox.gray[checked] .wx-checkbox-input,
+radio.gray[checked] .wx-radio-input,
+switch.gray.checked .uni-switch-input,
+checkbox.gray.checked .uni-checkbox-input,
+radio.gray.checked .uni-radio-input {
+  background-color: #f0f0f0 !important;
+  color: var(--black) !important;
+}
+
+switch.black[checked] .wx-switch-input,
+checkbox.black[checked] .wx-checkbox-input,
+radio.black[checked] .wx-radio-input,
+switch.black.checked .uni-switch-input,
+checkbox.black.checked .uni-checkbox-input,
+radio.black.checked .uni-radio-input {
+  background-color: var(--black) !important;
+  color: var(--white) !important;
+}
+
+switch.white[checked] .wx-switch-input,
+checkbox.white[checked] .wx-checkbox-input,
+radio.white[checked] .wx-radio-input,
+switch.white.checked .uni-switch-input,
+checkbox.white.checked .uni-checkbox-input,
+radio.white.checked .uni-radio-input {
+  background-color: var(--white) !important;
+  color: var(--black) !important;
+}
+/**
+ * -====================================
+ */
+
+.switch-sex .wx-switch-input,
+.switch-sex .uni-switch-input {
+  background: var(--red) !important;
+  border-color: var(--red) !important;
+}
+
+.switch-sex[checked] .wx-switch-input,
+.switch-sex.checked .uni-switch-input {
+  background: var(--blue) !important;
+  border-color: var(--blue) !important;
+}
+
+switch.red[checked] .wx-switch-input.wx-switch-input-checked,
+checkbox.red[checked] .wx-checkbox-input,
+radio.red[checked] .wx-radio-input,
+switch.red.checked .uni-switch-input.uni-switch-input-checked,
+checkbox.red.checked .uni-checkbox-input,
+radio.red.checked .uni-radio-input {
+  border-color: var(--red) !important;
+  background-color: var(--red) !important;
+  color: var(--white) !important;
+}
+
+switch.orange[checked] .wx-switch-input,
+checkbox.orange[checked] .wx-checkbox-input,
+radio.orange[checked] .wx-radio-input,
+switch.orange.checked .uni-switch-input,
+checkbox.orange.checked .uni-checkbox-input,
+radio.orange.checked .uni-radio-input {
+  background-color: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: var(--white) !important;
+}
+
+switch.yellow[checked] .wx-switch-input,
+checkbox.yellow[checked] .wx-checkbox-input,
+radio.yellow[checked] .wx-radio-input,
+switch.yellow.checked .uni-switch-input,
+checkbox.yellow.checked .uni-checkbox-input,
+radio.yellow.checked .uni-radio-input {
+  background-color: var(--yellow) !important;
+  border-color: var(--yellow) !important;
+  color: var(--black) !important;
+}
+
+switch.olive[checked] .wx-switch-input,
+checkbox.olive[checked] .wx-checkbox-input,
+radio.olive[checked] .wx-radio-input,
+switch.olive.checked .uni-switch-input,
+checkbox.olive.checked .uni-checkbox-input,
+radio.olive.checked .uni-radio-input {
+  background-color: var(--olive) !important;
+  border-color: var(--olive) !important;
+  color: var(--white) !important;
+}
+
+switch.green[checked] .wx-switch-input,
+switch[checked] .wx-switch-input,
+checkbox.green[checked] .wx-checkbox-input,
+checkbox[checked] .wx-checkbox-input,
+radio.green[checked] .wx-radio-input,
+radio[checked] .wx-radio-input,
+switch.green.checked .uni-switch-input,
+switch.checked .uni-switch-input,
+checkbox.green.checked .uni-checkbox-input,
+checkbox.checked .uni-checkbox-input,
+radio.green.checked .uni-radio-input,
+radio.checked .uni-radio-input {
+  background-color: var(--green) !important;
+  border-color: var(--green) !important;
+  color: var(--white) !important;
+}
+
+switch.cyan[checked] .wx-switch-input,
+checkbox.cyan[checked] .wx-checkbox-input,
+radio.cyan[checked] .wx-radio-input,
+switch.cyan.checked .uni-switch-input,
+checkbox.cyan.checked .uni-checkbox-input,
+radio.cyan.checked .uni-radio-input {
+  background-color: var(--cyan) !important;
+  border-color: var(--cyan) !important;
+  color: var(--white) !important;
+}
+
+switch.blue[checked] .wx-switch-input,
+checkbox.blue[checked] .wx-checkbox-input,
+radio.blue[checked] .wx-radio-input,
+switch.blue.checked .uni-switch-input,
+checkbox.blue.checked .uni-checkbox-input,
+radio.blue.checked .uni-radio-input {
+  background-color: var(--blue) !important;
+  border-color: var(--blue) !important;
+  color: var(--white) !important;
+}
+
+switch.purple[checked] .wx-switch-input,
+checkbox.purple[checked] .wx-checkbox-input,
+radio.purple[checked] .wx-radio-input,
+switch.purple.checked .uni-switch-input,
+checkbox.purple.checked .uni-checkbox-input,
+radio.purple.checked .uni-radio-input {
+  background-color: var(--purple) !important;
+  border-color: var(--purple) !important;
+  color: var(--white) !important;
+}
+
+switch.mauve[checked] .wx-switch-input,
+checkbox.mauve[checked] .wx-checkbox-input,
+radio.mauve[checked] .wx-radio-input,
+switch.mauve.checked .uni-switch-input,
+checkbox.mauve.checked .uni-checkbox-input,
+radio.mauve.checked .uni-radio-input {
+  background-color: var(--mauve) !important;
+  border-color: var(--mauve) !important;
+  color: var(--white) !important;
+}
+
+switch.pink[checked] .wx-switch-input,
+checkbox.pink[checked] .wx-checkbox-input,
+radio.pink[checked] .wx-radio-input,
+switch.pink.checked .uni-switch-input,
+checkbox.pink.checked .uni-checkbox-input,
+radio.pink.checked .uni-radio-input {
+  background-color: var(--pink) !important;
+  border-color: var(--pink) !important;
+  color: var(--white) !important;
+}
+
+switch.brown[checked] .wx-switch-input,
+checkbox.brown[checked] .wx-checkbox-input,
+radio.brown[checked] .wx-radio-input,
+switch.brown.checked .uni-switch-input,
+checkbox.brown.checked .uni-checkbox-input,
+radio.brown.checked .uni-radio-input {
+  background-color: var(--brown) !important;
+  border-color: var(--brown) !important;
+  color: var(--white) !important;
+}
+
+switch.grey[checked] .wx-switch-input,
+checkbox.grey[checked] .wx-checkbox-input,
+radio.grey[checked] .wx-radio-input,
+switch.grey.checked .uni-switch-input,
+checkbox.grey.checked .uni-checkbox-input,
+radio.grey.checked .uni-radio-input {
+  background-color: var(--grey) !important;
+  border-color: var(--grey) !important;
+  color: var(--white) !important;
+}
+
+switch.gray[checked] .wx-switch-input,
+checkbox.gray[checked] .wx-checkbox-input,
+radio.gray[checked] .wx-radio-input,
+switch.gray.checked .uni-switch-input,
+checkbox.gray.checked .uni-checkbox-input,
+radio.gray.checked .uni-radio-input {
+  background-color: var(--gray) !important;
+  border-color: var(--gray) !important;
+  color: var(--black) !important;
+}
+
+switch.black[checked] .wx-switch-input,
+checkbox.black[checked] .wx-checkbox-input,
+radio.black[checked] .wx-radio-input,
+switch.black.checked .uni-switch-input,
+checkbox.black.checked .uni-checkbox-input,
+radio.black.checked .uni-radio-input {
+  background-color: var(--black) !important;
+  border-color: var(--black) !important;
+  color: var(--white) !important;
+}
+
+switch.white[checked] .wx-switch-input,
+checkbox.white[checked] .wx-checkbox-input,
+radio.white[checked] .wx-radio-input,
+switch.white.checked .uni-switch-input,
+checkbox.white.checked .uni-checkbox-input,
+radio.white.checked .uni-radio-input {
+  background-color: var(--white) !important;
+  border-color: var(--white) !important;
+  color: var(--black) !important;
+}

@@ -23,10 +23,7 @@
 
 
   /*color-ui*/
-  @import "colorui/main.css";
-  @import "colorui/animation.css";
-  @import "colorui/icon.css";
-  @import "style/colorui-reset";
+  @import "colorui/index";
 
   /*样式表*/
   @import "style/index";
