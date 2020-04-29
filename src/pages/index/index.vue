@@ -7,6 +7,9 @@
 </template>
 
 <script>
+
+  import Pg from './test'
+
   export default {
     data() {
       return {}
