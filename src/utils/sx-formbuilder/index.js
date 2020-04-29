@@ -261,7 +261,10 @@ export class FormBuilder {
   }
 
   addControls(ruler, messages) {
-    Object.assign(this.controls, this.__getControls(ruler, messages));
+    this.controls = {
+      ...this.controls,
+      ...this.__getControls(ruler, messages)
+    }
   }
 
   /**
@@ -270,7 +273,11 @@ export class FormBuilder {
    * @param {string} name    -  表单中的 key
    */
   removeControl(name) {
-    this.controls[name] && delete this.controls[name];
+    if(this.controls[name]){
+      this.controls[name] = null;
+      delete this.controls[name];
+    }
+
   }
 
   /**
