@@ -13,7 +13,6 @@
 </script>
 
 <style lang="scss">
-
   /*scss变量 + 通用样式库 */
   @import "style/variables.scss";
   @import "~sx-common-css/index.wx.scss";
