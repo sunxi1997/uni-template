@@ -1,4 +1,17 @@
 /**
+ *
+ * @version 1.0.1
+ *
+ * @author sunxi1997
+ *
+ * @desc 表单验证工具
+ *
+ * 孙玺修改与 2020-5-9
+ *
+ * https://github.com/sunxi1997/sx-formbuilder
+ */
+
+/**
  * @typedef  {Object}    Descriptor             -       验证规则描述对象
  * @property {*}         [defaultValue='']      -       初始值
  * @property {validator} [validator=null]       -       自定义验证函数,支持异步

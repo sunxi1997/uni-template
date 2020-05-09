@@ -3,7 +3,7 @@
     "types": [
       "uni-app",
       "html5plus",
-      "miniprogram-api-typings/types/lib.wx.api.d.ts",
+      "miniprogram-api-typings/index.d.ts",
       "mini-types/types/api"
     ]
   }
