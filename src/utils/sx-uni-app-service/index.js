@@ -1,3 +1,10 @@
+/**
+ * @name uni-app 请求服务
+ * @version 1.0.0
+ * @author sunxi1997
+ * @description 请求封装,加入拦截器功能
+ */
+
 
 export default class Service {
 
