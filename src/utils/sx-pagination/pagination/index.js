@@ -1,4 +1,13 @@
-export default  class Pagination {
+/**
+ * @version 2.0.10
+ * @author sunxi1997
+ * @description 移动端分页加载器
+ *
+ * 孙玺修改与 2020-5-9
+ */
+
+
+export default class Pagination {
 
   /**
    * @property page
@@ -91,7 +100,7 @@ export default  class Pagination {
 
     this.api = api;
 
-    if (defaultParams)
+    if(defaultParams)
       this.defaultParams = defaultParams;
 
     options && options instanceof Object && Object.assign(this, options)
@@ -123,7 +132,7 @@ export default  class Pagination {
       defaultParams: defaultParams2
     } = this;
 
-    if (!hasMore && !reset || loading)
+    if(!hasMore && !reset || loading)
       return this;
 
     page = reset ? 1 : page + 1;
@@ -146,13 +155,13 @@ export default  class Pagination {
       // 加载成功
       let res = await Pagination.format(response, this, params);
 
-      if(this.format && typeof this.format === 'function'){
+      if(this.format && typeof this.format === 'function') {
         res = this.format(res);
         if(res instanceof Promise)
           await res;
       }
 
-      if (typeof res !== 'object') {
+      if(typeof res !== 'object') {
         console.log(res);
         throw new Error(res + '不是合法 format 的返回值');
       }
@@ -166,7 +175,7 @@ export default  class Pagination {
       totalPage = +totalPage;
       currentPage = +currentPage;
 
-      if (isNaN(totalPage) || isNaN(currentPage) || !Array.isArray(list)) {
+      if(isNaN(totalPage) || isNaN(currentPage) || !Array.isArray(list)) {
         throw new Error(res + '不是合法 format 的返回值');
       }
 
@@ -181,7 +190,7 @@ export default  class Pagination {
       this.tip = hasMore ? hasMoreTip : noMoreTip;
     }
       // 加载失败
-    catch (e) {
+    catch(e) {
       err = e;
       this.error = true;
       this.tip = errTip;
@@ -201,7 +210,7 @@ export default  class Pagination {
    * @method reset
    * @desc 重置分页器为初始状态
    */
-  reset(){
+  reset() {
     this.page = 0;
     this.totalPage = 1;
     this.tip = '';
@@ -238,10 +247,8 @@ export default  class Pagination {
    *
    * @return Promise  -   resolve 必须为指定类型的对象
    */
-  static format = function (result, pg, params) {
-    return new Promise((resolve, reject) => {
-      console.log(result);
-      reject('请先设置api回调处理')
-    });
+  static format = async function (result, pg, params) {
+    console.log(result);
+    return Promise.reject('请先设置api回调处理')
   };
 }

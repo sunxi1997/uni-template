@@ -13,7 +13,7 @@ $Pagination.setSetting({
 });
 
 // 先设置分页接口回调处理
-$Pagination.format = async function (result, pg, params) {
+$Pagination.format = async function (result) {
   let {
     data,
     last_page,
