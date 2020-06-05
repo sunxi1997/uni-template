@@ -10,3 +10,6 @@ export const phoneReg = /^1\d{10}$/
 
 // 固话
 export const telReg = /^0\d{2,3}-\d{7,8}$/;
+
+// 邮箱正则
+export const emailReg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/

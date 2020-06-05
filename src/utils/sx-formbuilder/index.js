@@ -1,12 +1,12 @@
 /**
  *
- * @version 1.0.1
+ * @version 1.0.2
  *
  * @author sunxi1997
  *
  * @desc 表单验证工具
  *
- * 孙玺修改与 2020-5-9
+ * 孙玺修改与 2020-6-5
  *
  * https://github.com/sunxi1997/sx-formbuilder
  */
@@ -31,6 +31,10 @@
  * @param {*} value                 -     变化后的值
  *
  * @return {Boolean,Promise}        -     支持异步验证,返回验证结果(布尔值)
+ */
+/**
+ * @callback getForm                -     获取formBuilder示例的回调函数, this指向父级作用域的this
+ * @return FormBuilder
  */
 
 
@@ -322,4 +326,27 @@ export class FormBuilder {
     return controls;
   }
 
+}
+
+/**
+ * @param {getForm | string} getForm - 获取formBuilder 实例的函数, 或者在this中的键名
+ * @param {Array<string>} formControlKeys
+ */
+export function mapFormControl(getForm, formControlKeys) {
+  if(!(getForm instanceof Function || getForm instanceof String /*|| getForm instanceof Symbol*/))
+    throw new Error(getForm + '不是函数!')
+
+  return formControlKeys.reduce((hash, key) => {
+    hash[key] = function () {
+      // 获取form实例
+      let form = getForm instanceof String ? this[getForm] : getForm.call(this);
+
+      if(!(form instanceof FormBuilder)){
+        console.error('未能获取到formBuilder实例')
+        return null
+      }
+      return form.controls[key]
+    }
+    return hash;
+  }, {});
 }
