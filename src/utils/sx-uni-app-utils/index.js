@@ -83,80 +83,8 @@ export function awaitUniApi(api, params = {}) {
 
 /**
  * 接口缓存,返回新接口
- * @param {function}  api            - 原 api 函数
- * @param {string}    cacheKey       - 在本地缓存时缓存对应的 key
- * @param {number}    [cacheTime=0]  - 缓存有效时长 0 永久
  */
-export function cacheApi(api, cacheKey, cacheTime = 0) {
-
-  let caches = null;
-
-  // 初始化历史缓存
-  function cacheInit() {
-    let result = uni.getStorageSync(cacheKey);
-    caches = result && Array.isArray(result) && result || [];
-    return caches
-  }
-
-  // 读缓存
-  function getCache(jsonParams) {
-    caches || cacheInit();
-
-    // 读缓存
-    let now = +new Date();
-    for(let i = 0; i < caches.length; i++) {
-      let cache = caches[i];
-
-      // 缓存已失效
-      if(cacheTime > 0 && (cache.time - now) > cacheTime)
-        setTimeout(() => caches.splice(i, 1))
-
-      // 请求内容一致,返回该缓存
-      if(cache.params === jsonParams)
-        return cache.data;
-    }
-  }
-
-  // 写缓存
-  function cacheAdd(jsonParams, response) {
-    caches.push({
-      // 缓存过期时间
-      time: cacheTime === 0 ? 0 : + new Date() + cacheTime,
-      // 请求内容
-      params: jsonParams,
-      // 响应内容
-      data: response
-    })
-    uni.setStorage({
-      key: cacheKey,
-      data: caches
-    })
-  }
-
-  // 封装后的带有缓存功能的 api
-  return async function (...params) {
-
-    let jsonParams;
-    try {
-      jsonParams = JSON.stringify(params);
-    } catch(e) {
-      return Promise.reject(e)
-    }
-
-    // 读缓存
-    let cacheData = getCache(jsonParams);
-    if(cacheData)
-      return cacheData;
-
-    // 没有可用缓存 重新执行请求
-    return await api(...params).then(data => {
-      // 写缓存
-      cacheAdd(jsonParams, data);
-      // 返回
-      return data;
-    })
-  }
-}
+export {createCacheApi as cacheApi, clearCache} from './cacheApi/index'
 
 /**
  * 将接口 promise 包装

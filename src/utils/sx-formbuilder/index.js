@@ -1,12 +1,12 @@
 /**
  *
- * @version 1.0.2
+ * @version 1.0.4
  *
  * @author sunxi1997
  *
  * @desc 表单验证工具
  *
- * 孙玺修改与 2020-6-5
+ * 孙玺修改与 2020-6-12
  *
  * https://github.com/sunxi1997/sx-formbuilder
  */
@@ -333,19 +333,20 @@ export class FormBuilder {
  * @param {Array<string>} formControlKeys
  */
 export function mapFormControl(getForm, formControlKeys) {
-  if(!(getForm instanceof Function || getForm instanceof String /*|| getForm instanceof Symbol*/))
+  let type = typeof getForm;
+  if(type !== "function" && type !== 'string')
     throw new Error(getForm + '不是函数!')
 
   return formControlKeys.reduce((hash, key) => {
     hash[key] = function () {
       // 获取form实例
-      let form = getForm instanceof String ? this[getForm] : getForm.call(this);
+      let form = type === 'string' ? this[getForm] : getForm.call(this);
 
       if(!(form instanceof FormBuilder)){
         console.error('未能获取到formBuilder实例')
         return null
       }
-      return form.controls[key]
+      return form.controls[key] || null
     }
     return hash;
   }, {});

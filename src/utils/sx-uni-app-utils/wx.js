@@ -1,10 +1,9 @@
 import {hasProvider, awaitUniApi} from "./index";
 
-
 // 获取用户授权信息
-export async function getWxUserInfo() {
+export async function getWxUserInfo(option) {
   return await hasProvider('oauth', 'weixin') ?
-    await awaitUniApi(uni.getUserInfo, {provider: 'weixin'}) :
+    await awaitUniApi(uni.getUserInfo, {provider: 'weixin', ...option}) :
     Promise.reject();
 }
 
