@@ -13,16 +13,31 @@
 </script>
 
 <style lang="scss">
+  /*color-ui*/
+  @import "colorui/index";
+
+  // 主题色
+  .bg-primary {
+    @extend .bg-blue;
+  }
+
+  .text-primary{
+    @extend .text-blue;
+  }
+
+  .primary{
+    @extend .blue;
+  }
+
+</style>
+
+<style lang="scss">
   /*scss变量 + 通用样式库 */
   @import "style/variables.scss";
   @import "~sx-common-css/index.wx.scss";
 
   /*uni-app样式问题修复*/
   @import "style/uni-reset";
-
-
-  /*color-ui*/
-  @import "colorui/index";
 
   /*样式表*/
   @import "style/index";
