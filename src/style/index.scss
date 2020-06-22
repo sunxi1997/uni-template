@@ -15,7 +15,7 @@ page {
 /* #ifdef H5 */
 page {
   // h5 中100vh是整个窗口高度,而不是小程序中的仅页面部分(不包含navbar,tabbar)
-  min-height: calc(100% - var(--window-top));
+  min-height: calc(100% - var(--window-top) - var(--window-bottom));
 }
 
 /* #endif */
