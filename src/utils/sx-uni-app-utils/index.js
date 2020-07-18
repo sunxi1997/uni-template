@@ -14,7 +14,7 @@ let _getPxByUpx, _getUpxByPx;
   function __getPxByUpx(upx, int = false) {
     let px = width / 750 * upx;
     if(int) {
-      px = parseInt(px);
+      px = ~~px;
       px += px % 2;
     }
     return px;
@@ -23,7 +23,7 @@ let _getPxByUpx, _getUpxByPx;
   function __getUpxByPx(px, int = false) {
     let upx = 750 / (width / px);
     if(int) {
-      upx = parseInt(upx);
+      upx = ~~upx;
       upx += upx % 2;
     }
     return upx;
