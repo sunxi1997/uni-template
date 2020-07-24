@@ -114,6 +114,43 @@ export async function apiAwait(request, options = {}) {
   })
 }
 
+export const loadingFor = (() => {
+
+  const loadings = new Set();
+
+  function showLoading(options = {}) {
+    uni.showNavigationBarLoading()
+    uni.showLoading({title: '加载中', ...options})
+  }
+
+  function hideLoading(promise) {
+    loadings.delete(promise);
+    if(loadings.size === 0){
+      uni.hideLoading()
+      uni.hideNavigationBarLoading()
+    }
+  }
+
+  return async function (promise, options) {
+    showLoading(options);
+    loadings.add(promise);
+
+    if(promise instanceof Promise){
+      return await promise.then(res => {
+        hideLoading(promise);
+        return res;
+      }).catch(err => {
+        hideLoading(promise);
+        return Promise.reject(err);
+      })
+    }
+    else
+      return hideLoading(promise);
+  }
+
+})();
+
+
 /**
  * 提示
  * @param {string | Object} toastOption
