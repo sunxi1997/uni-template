@@ -1,8 +1,8 @@
 /**
  * @name uni-app 请求服务
- * @version 1.0.0
+ * @version 1.0.1
  * @author sunxi1997
- * @description 请求封装,加入拦截器功能
+ * @description 请求拦截器执行位置调整
  */
 
 
@@ -70,9 +70,6 @@ export default class Service {
       interceptors
     } = this;
 
-    // 请求拦截器
-    options = await interceptors.request.intercept(options) || {};
-
     let {
       baseURL,
       timeout,
@@ -83,7 +80,7 @@ export default class Service {
       url = _url,
       header = {},
       ...config
-    } = options;
+    } = options || {};
 
     // 实际请求地址
     if (url.indexOf('http') !== 0)
@@ -99,6 +96,9 @@ export default class Service {
       header,
       ...config,
     };
+
+    // 请求拦截器
+    config = await interceptors.request.intercept(config);
 
     // 发送请求
     try {
