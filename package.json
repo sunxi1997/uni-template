@@ -34,7 +34,7 @@
     "@dcloudio/uni-mp-weixin": "^2.0.0-26920200421006",
     "@dcloudio/uni-stat": "^2.0.0-26920200421006",
     "flyio": "^0.6.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "regenerator-runtime": "^0.12.1",
     "sass-loader": "^8.0.2",
     "sx-common-css": "^4.0.0",
